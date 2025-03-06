@@ -1,0 +1,51 @@
+
+<div class="container">
+    <div class="login-section">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login">
+        <h2>Jardinería</h2>
+
+        <!-- Mensaje de Error del Email -->
+        <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <span *ngIf="loginForm.get('email')?.errors?.['required']">El correo es requerido</span>
+          <span *ngIf="loginForm.get('email')?.errors?.['email']">Ingrese un correo válido</span>
+        </div> 
+        <!-- Email -->
+        <mat-form-field class="login__input">
+          <mat-label 
+          >Ingrese su email</mat-label>
+          <input 
+            matInput
+            formControlName="email"
+          >
+        </mat-form-field>
+       
+
+        <!-- Mensaje de Error de la Contraseña -->
+        <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <span *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es requerida</span>
+          <span *ngIf="loginForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres</span>
+        </div> 
+        <!-- Contraseña -->
+        <mat-form-field class="login__input">
+          <mat-label>Ingrese su contraseña</mat-label>
+          <input 
+            formControlName="password" 
+            matInput [type]="hide() ? 'password' : 'text'" 
+            [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="clickEvent($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-flat-button class="login__submit">Ingresar</button>
+      </form>
+    </div>
+    <div class="image-section"></div>
+</div>
+
