@@ -29,9 +29,9 @@
         <mat-form-field class="login__input">
           <mat-label>Ingrese su contraseña</mat-label>
           <input 
-            formControlName="password" 
-            matInput [type]="hide() ? 'password' : 'text'" 
-            [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            formControlName="contrasenia" 
+            matInput [type]="hide() ? 'contrasenia' : 'text'" 
+            [class.is-invalid]="loginForm.get('contrasenia')?.invalid && loginForm.get('contrasenia')?.touched">
           <button
             mat-icon-button
             matSuffix
