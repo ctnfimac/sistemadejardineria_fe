@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { provideHttpClient } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar'; 
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { provideHttpClient } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatSnackBarModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

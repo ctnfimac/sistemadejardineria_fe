@@ -4,39 +4,37 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login">
         <h2>Jardinería</h2>
 
-        <!-- Mensaje de Error del Email -->
-        <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-          <span *ngIf="loginForm.get('email')?.errors?.['required']">El correo es requerido</span>
-          <span *ngIf="loginForm.get('email')?.errors?.['email']">Ingrese un correo válido</span>
-        </div> 
-        <!-- Email -->
         <mat-form-field class="login__input">
-          <mat-label 
-          >Ingrese su email</mat-label>
-          <input 
-            matInput
-            formControlName="email"
-          >
+          <!-- Mensajes de Error del Email -->
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            El correo electrónico es requerido
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Por favor ingrese un correo electrónico válido
+          </mat-error>
+          <!-- Email -->
+          <mat-label >Ingrese su email</mat-label>
+          <input matInput formControlName="email" >
         </mat-form-field>
        
-
-        <!-- Mensaje de Error de la Contraseña -->
-        <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-          <span *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es requerida</span>
-          <span *ngIf="loginForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres</span>
-        </div> 
-        <!-- Contraseña -->
         <mat-form-field class="login__input">
+          <!-- Mensaje de Error de la Contraseña -->
+          <mat-error *ngIf="loginForm.get('contrasenia')?.hasError('required')">
+            La contraseña es requerida
+          </mat-error>
           <mat-label>Ingrese su contraseña</mat-label>
+          <!-- Contraseña -->
           <input 
+            type="password" 
             formControlName="contrasenia" 
-            matInput [type]="hide() ? 'contrasenia' : 'text'" 
+            matInput [type]="hide() ? 'password' : 'text'" 
             [class.is-invalid]="loginForm.get('contrasenia')?.invalid && loginForm.get('contrasenia')?.touched">
           <button
+            type="button"
             mat-icon-button
             matSuffix
             (click)="clickEvent($event)"
-            [attr.aria-label]="'Hide password'"
+            [attr.aria-label]="'Hide contrasenia'"
             [attr.aria-pressed]="hide()"
           >
             <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
