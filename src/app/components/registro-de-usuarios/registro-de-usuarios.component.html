@@ -1,0 +1,82 @@
+
+<div class="container">
+    <div class="login-section">
+      <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" class="login">
+        <h2>Registro de Jardinero</h2>
+
+        <mat-form-field class="login__input">
+          <!-- Mensajes de Error del Teléfono -->
+          <mat-error *ngIf="registroForm.get('contrasenia')?.hasError('required')">
+            El teléfono es requerido
+          </mat-error>
+          <!-- Teléfono -->
+          <mat-label >Ingrese su teléfono</mat-label>
+          <input matInput formControlName="telefono" >
+        </mat-form-field>
+            
+        <mat-form-field class="login__input">
+            <!-- Mensajes de Error del Nombre -->
+            <mat-error *ngIf="registroForm.get('nombre')?.hasError('required')">
+              El Nombre es requerido
+            </mat-error>
+            <!-- Nombre -->
+            <mat-label >Ingrese su nombre</mat-label>
+            <input matInput formControlName="nombre" >
+        </mat-form-field>
+
+        <mat-form-field class="login__input">
+            <!-- Mensajes de Error del Apellido -->
+            <mat-error *ngIf="registroForm.get('apellido')?.hasError('required')">
+              El Apellido es requerido
+            </mat-error>
+            <!-- Apellido -->
+            <mat-label >Ingrese su apellido</mat-label>
+            <input matInput formControlName="apellido" >
+        </mat-form-field>
+
+        <mat-form-field class="login__input">
+            <!-- Mensajes de Error de la Email -->
+            <mat-error *ngIf="registroForm.get('email')?.hasError('required')">
+              El email es requerido
+            </mat-error>
+            <mat-error *ngIf="registroForm.get('email')?.hasError('email')">
+              Por favor ingrese un correo electrónico válido
+            </mat-error>
+            <!-- Email -->
+            <mat-label >Ingrese su email</mat-label>
+            <input matInput formControlName="email" >
+        </mat-form-field>
+         
+       
+        <mat-form-field class="login__input">
+          <!-- Mensaje de Error de la Contraseña -->
+          <mat-error *ngIf="registroForm.get('contrasenia')?.hasError('required')">
+            La contraseña es requerida
+          </mat-error>
+          <mat-label>Ingrese su contraseña</mat-label>
+          <!-- Contraseña -->
+          <input 
+            type="password" 
+            formControlName="contrasenia" 
+            matInput [type]="hide() ? 'password' : 'text'" 
+            [class.is-invalid]="registroForm.get('contrasenia')?.invalid && registroForm.get('contrasenia')?.touched">
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="clickEvent($event)"
+            [attr.aria-label]="'Hide contrasenia'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-flat-button class="login__submit">Registrar</button>
+        <a href="/login" class="login__crear-usuario">Iniciar Sesión</a>
+      </form>
+    </div>
+    <div class="image-section"></div>
+</div>
+
+

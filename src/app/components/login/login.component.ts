@@ -63,10 +63,8 @@ export class LoginComponent {
   }
 
   clickEvent(event: MouseEvent) {
-    console.log('ver no ver:' + this.hide())
     this.hide.set(!this.hide());
     event.stopPropagation();
-
   }
 }
 
