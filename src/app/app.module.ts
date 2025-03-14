@@ -13,7 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { provideHttpClient } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RegistroDeUsuariosComponent } from './components/registro-de-usuarios/registro-de-usuarios.component';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { RegistroDeUsuariosComponent } from './components/registro-de-usuarios/r
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

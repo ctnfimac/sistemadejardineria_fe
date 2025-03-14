@@ -17,12 +17,13 @@
     }
 
     h2 {
-      margin-bottom: 2rem;
+      margin-bottom: .6rem;
+      margin-top: .6em;
       text-align: center;
       color: #227093;
-      font-size: 1.4em;
+      font-size: 1.2em;
       @media screen and (min-width: 768px){
-        font-size: 2em;
+        font-size: 1.6em;
       }
     }
   }
